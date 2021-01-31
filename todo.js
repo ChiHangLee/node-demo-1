@@ -1,8 +1,9 @@
-var fs = require('fs');
+var fs = require('fs')
+var path = require('path')
 const verb = process.argv[2]
 const content = process.argv[3]
 const content2 = process.argv[4]
-const dbPath = '/Users/mario/Desktop/xdml/node-demo-1/db'
+const dbPath = path.join(__dirname, 'db')
 
 ensureDd()
 
@@ -58,7 +59,10 @@ function fetch() {
     return list
 }
 function display(list) {
-    console.log(list) // 列出所有任务
+    for (let i = 0; i < list.length; i++) {
+        const mark = list[i][1] === true ? '[x]' : '[ ]'
+        console.log(mark + '' + '任务内容: ' + list[i][0])
+    }
 }
 function addTask(list, content) {
     list.push([content, false])
