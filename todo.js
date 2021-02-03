@@ -76,9 +76,3 @@ function markTaskAsDone(list, n) {
 function editTask(list, n, newContent) {
     list[n - 1][0] = newContent
 }
-
-
-
-
-
-
